@@ -28,13 +28,13 @@ class Fuzzy_Logic_Controller {
     double Kd_ = 0.0;
     
     // Define constraints to prevent instability
-    static const double KP_MIN = 0.0;
-    static const double KP_MAX = 25.0; // Example values, tune these!
-    static const double KD_MIN = 0.0;
-    static const double KD_MAX = 10.0;
+    static constexpr double KP_MIN = 0.0;
+    static constexpr double KP_MAX = 25.0; // Example values, tune these!
+    static constexpr double KD_MIN = 0.0;
+    static constexpr double KD_MAX = 10.0;
 
-    static const double MAX_ERROR = 180;            // NAX BNO-Orientation Error
-    static const double MAX_DELTA_ERROR = 1200;     // MAX Assumed Gyro Error
+    static constexpr double MAX_ERROR = 180;            // NAX BNO-Orientation Error
+    static constexpr double MAX_DELTA_ERROR = 1200;     // MAX Assumed Gyro Error
 
     static const double error_mf_points[NUM_SETS][3]; 
     static const double delta_error_mf_points[NUM_SETS][3];
@@ -49,6 +49,8 @@ class Fuzzy_Logic_Controller {
     static const double OUTPUT_CENTROIDS[NUM_SETS];
 
     // Functions
+    double getKp() { return Kp_;};
+    double getKd() { return Kd_;};
     double getMembershipValue(double x, double a, double b, double c);
     void fuzzifyInput(double input, const double mf_points[NUM_SETS][3], double *membership_values);
     void ruleInference(const double* error_Membership_Values, 
@@ -214,16 +216,16 @@ void Fuzzy_Logic_Controller::updateGains(double error, double delta_error){
 int main(){
   Fuzzy_Logic_Controller FuzzyController;
 
-  double Kp = 30.0;
-  double Kd = 0;
+  double Kp = 150.0;
+  double Kd = 1000.0;
 
-  printf("Kp value : %d ", Kp);
-  printf("Kd value : %d ", Kd);
+  printf("Kp value : %lf ", Kp);
+  printf("\nKd value : %lf ", Kd);
 
-  FuzzyController.updateGains(30.0, 0.0);
+  FuzzyController.updateGains(Kp, Kd);
 
-  // printf("Updated Kp value : %d", Kp_);
-  // printf("Updated Kd value : %d", Kd_);
+  printf("\nUpdated Kp value : %lf", FuzzyController.getKp());
+  printf("\nUpdated Kd value : %lf", FuzzyController.getKd());
 
   return 0;
 }
