@@ -33,7 +33,7 @@ delta_error_mf_points = np.array([
 ])
 
 # Output centroids (for both Kp and Kd)
-OUTPUT_CENTROIDS = np.array([-0.20, -0.15, -0.075, 0.0, 0.075, 0.15, 0.20])
+OUTPUT_CENTROIDS = np.array([-.20, -0.15, -0.075, 0.0, 0.075, 0.15, 0.20])
 
 # Rule bases (indices 0..6 → NB..PB)
 KP_Rule_Base = np.array([

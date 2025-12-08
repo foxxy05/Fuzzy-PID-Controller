@@ -84,13 +84,13 @@ const int KD_Rule_Base[NUM_SETS][NUM_SETS] = {
 // };
 
 const double OUTPUT_CENTROIDS[NUM_SETS] = {
-    -0.200,  // NB
-    -0.150,  // NM
-    -0.075,  // NS
-     0.000,  // ZO
-     0.075,  // PS
-     0.150,  // PM
-     0.200   // PB
+    -0.5,  // NB
+    -0.3,  // NM
+    -0.1,  // NS
+     0.0,  // ZO
+     0.1,  // PS
+     0.3,  // PM
+     0.5   // PB
 };
 
 double getMembershipValue(double x, double a, double b, double c){
@@ -199,13 +199,13 @@ void updateGains(double error, double delta_error, double *Kp, double *Kd)
 
 int main()
 {
-   double Kp = 10.0;
-   double Kd = 5.0;
+   double Kp = 150.0;
+   double Kd = 100.0;
 
    printf("Kp value : %lf ", Kp);
    printf("\nKd value : %lf ", Kd);
 
-   updateGains(-180, 500.0, &Kp, &Kd);
+   updateGains(-180, 1000.0, &Kp, &Kd);
 
    printf("\nUpdated Kp value : %lf", Kp);
    printf("\nUpdated Kd value : %lf", Kd);
