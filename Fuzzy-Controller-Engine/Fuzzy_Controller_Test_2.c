@@ -17,7 +17,7 @@ static const double KP_MIN = 0.0;
 static const double KP_MAX = 25.0; // Example values, tune these!
 static const double KD_MIN = 0.0;
 static const double KD_MAX = 10.0;
-static const double MAX_ERROR = 180; // NAX BNO-Orientation Error
+static const double MAX_ERROR = 180; // MAX BNO-Orientation Error
 static const double MAX_DELTA_ERROR = 1200;
 
 const double error_mf_points[NUM_SETS][3] = {
