@@ -338,6 +338,3 @@ pip install numpy matplotlib
 ## Author
 
 **Atreya** — [@foxxy05](https://github.com/foxxy05)
-
-PCCoE, Pune | Electronics & Telecommunication Engineering  
-AUTOMATONS PCCOE — Robocon / IRC Technical Team
